@@ -1,0 +1,41 @@
+# Environment & Credentials
+.env
+.env.local
+.env.*.local
+
+# Python Virtual Environments
+.venv/
+env/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Logs
+*.log
+lko_stdout.log
+lko_stderr.log
+
+# User screenshots & optical captures
+screenshots/*.png
+screenshots/*.jpg
+screenshots/*.jpeg
+
+# Compiled macOS Mach-O binaries & bundles
+LKO
+LKO.app/
+
+# macOS System Files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes

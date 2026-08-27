@@ -1,0 +1,442 @@
+:root {
+  --bg-dark: #070714;
+  --card-bg: #110d22;
+  --card-surface: rgba(22, 17, 44, 0.75);
+  
+  --purple-glow: #8b5cf6;
+  --purple-accent: #a855f7;
+  --purple-badge: #7c3aed;
+  --green-badge: #10b981;
+  --blue-accent: #3b82f6;
+  
+  --text-main: #f8fafc;
+  --text-dim: #94a3b8;
+  --text-sub: #64748b;
+  
+  --font-main: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-mono: 'Share Tech Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.menu-app-body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-main);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  user-select: none;
+  background: radial-gradient(circle at 50% 10%, #1e1338 0%, #080816 70%);
+}
+
+.aerolite-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px 18px 16px 18px;
+  gap: 14px;
+}
+
+/* TOP BRANDING HEADER */
+.aero-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 6px;
+}
+
+.aero-logo {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.5));
+}
+
+.brand-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.reg-sym {
+  font-size: 11px;
+  color: var(--text-sub);
+  font-weight: 400;
+}
+
+.brand-sub {
+  font-size: 11.5px;
+  color: var(--text-sub);
+  font-weight: 500;
+  margin-top: 1px;
+}
+
+/* NAVIGATION LIST */
+.aero-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.aero-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 10px 14px;
+  color: var(--text-dim);
+  font-family: var(--font-main);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
+}
+
+.aero-nav-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+/* Active Highlight Item (Matching Dashboard in reference image) */
+.aero-nav-item.active {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+  opacity: 0.9;
+}
+
+.nav-label {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.nav-arrow {
+  font-size: 13px;
+  color: var(--text-sub);
+}
+
+.nav-chevron {
+  font-size: 9px;
+  color: var(--text-sub);
+  transition: transform 0.2s ease;
+}
+
+.nav-chevron.rotated {
+  transform: rotate(180deg);
+}
+
+/* INLINE DRAWER (For Slack / Quick Prompt) */
+.inline-drawer {
+  display: flex;
+  gap: 8px;
+  padding: 6px 8px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 10px;
+  margin-top: -2px;
+  margin-bottom: 4px;
+}
+
+.inline-drawer.hidden {
+  display: none;
+}
+
+.inline-drawer input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-family: var(--font-main);
+  font-size: 12px;
+}
+
+.inline-drawer input::placeholder {
+  color: var(--text-sub);
+}
+
+.drawer-btn {
+  background: linear-gradient(135deg, #a855f7, #3b82f6);
+  border: none;
+  color: #ffffff;
+  font-family: var(--font-main);
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.drawer-btn:hover {
+  opacity: 0.9;
+}
+
+/* TOAST POPUP */
+.toast-popup {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(17, 13, 34, 0.95);
+  border: 1px solid #a855f7;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+  z-index: 100;
+  pointer-events: none;
+  animation: fadeInOut 2.2s forwards ease;
+}
+
+.toast-popup.hidden {
+  display: none;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translate(-50%, 10px); }
+  15% { opacity: 1; transform: translate(-50%, 0); }
+  85% { opacity: 1; transform: translate(-50%, 0); }
+  100% { opacity: 0; transform: translate(-50%, -10px); }
+}
+
+/* BADGES (Matching reference image) */
+.nav-badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 8px;
+  letter-spacing: 0.3px;
+}
+
+.nav-badge.purple {
+  background: rgba(139, 92, 246, 0.25);
+  color: #c084fc;
+  border: 1px solid rgba(139, 92, 246, 0.4);
+}
+
+.nav-badge.crown {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(236, 72, 153, 0.3));
+  color: #e879f9;
+  border: 1px solid rgba(236, 72, 153, 0.4);
+}
+
+.nav-badge.green {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+/* BOTTOM RADAR CARD (Matching image bottom card) */
+.aero-radar-card {
+  background: #0d0a1c;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.radar-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.radar-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.radar-time-pill {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-dim);
+}
+
+/* Circular Radar Viewport */
+.radar-viewport {
+  position: relative;
+  width: 100%;
+  height: 155px;
+  border-radius: 12px;
+  background: radial-gradient(circle, #1a1038 0%, #0a0816 85%);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.radar-compass-ring {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 1px dashed rgba(139, 92, 246, 0.4);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+}
+
+.radar-grid-lines {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+}
+
+.c-point {
+  position: absolute;
+  font-size: 9px;
+  font-weight: 800;
+  color: var(--text-sub);
+}
+
+.c-point.n { top: 2px; left: 50%; transform: translateX(-50%); color: #a855f7; }
+.c-point.s { bottom: 2px; left: 50%; transform: translateX(-50%); }
+.c-point.w { left: 4px; top: 50%; transform: translateY(-50%); }
+.c-point.e { right: 4px; top: 50%; transform: translateY(-50%); }
+
+.radar-circuit-svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Tracking Nodes */
+.radar-node {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.node-app {
+  left: 28%;
+  top: 48%;
+}
+
+.node-battery {
+  right: 28%;
+  top: 42%;
+}
+
+.node-pulse {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(168, 85, 247, 0.3);
+  animation: radarPing 2s infinite ease-out;
+}
+
+@keyframes radarPing {
+  0% { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.node-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #2e1065;
+  border: 2px solid #a855f7;
+  box-shadow: 0 0 10px #a855f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.node-dot-small {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #1e1b4b;
+  border: 2px solid #818cf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  position: relative;
+  z-index: 2;
+}
+
+.node-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 3px;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
+}
+
+/* Rotating Radar Sweep Beam */
+.radar-sweep-beam {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(168, 85, 247, 0.35) 0deg, transparent 65deg);
+  animation: rotateSweep 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotateSweep {
+  100% { transform: rotate(360deg); }
+}
+
+/* Metrics Footer in Card */
+.radar-metrics-foot {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding-top: 2px;
+}
+
+.m-lbl { color: var(--text-sub); }
+.m-val { color: #c084fc; font-weight: 700; }

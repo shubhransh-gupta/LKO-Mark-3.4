@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LKO MARK 3.4 // NEURAL TACTICAL HUD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="sci-fi-hud">
+
+  <!-- Background Sci-Fi Grid & Radar Atmosphere -->
+  <div class="hud-space">
+    <div class="hud-grid-plane"></div>
+    <div class="hud-radar-concentric"></div>
+    <div class="hud-scanline-fx"></div>
+    <div class="hud-vignette"></div>
+  </div>
+
+  <!-- Master HUD Layout -->
+  <div class="hud-master-container">
+
+    <!-- TOP HEADER: Sci-Fi Tactical Flight Deck -->
+    <header class="hud-tech-frame header-frame">
+      <div class="frame-notch top-left"></div>
+      <div class="frame-notch top-right"></div>
+      <div class="frame-notch bottom-left"></div>
+      <div class="frame-notch bottom-right"></div>
+
+      <!-- Left Branding -->
+      <div class="header-left">
+        <div class="hud-arc-icon">
+          <div class="arc-disc-outer"></div>
+          <div class="arc-disc-inner"></div>
+          <div class="arc-dot"></div>
+        </div>
+        <div class="hud-title-block">
+          <div class="title-primary">
+            <span class="hud-glitch" data-text="LKO">LKO</span>
+            <span class="hud-pill-tag">MARK 3.4</span>
+          </div>
+          <div class="title-secondary">NEURAL MAC ASSISTANT & REMOTE TACTICAL CORE</div>
+        </div>
+      </div>
+
+      <!-- Center Status & Audio Visualizer Wave -->
+      <div class="header-center">
+        <div class="hud-status-strip">
+          <span class="bracket">[</span>
+          <span class="status-pulse-dot"></span>
+          <span class="status-label">TACTICAL PROTOCOL ACTIVE</span>
+          <span class="bracket">]</span>
+        </div>
+        <div class="hud-waveform-bars" id="audio-wave">
+          <span class="w-bar"></span><span class="w-bar"></span><span class="w-bar"></span>
+          <span class="w-bar"></span><span class="w-bar"></span><span class="w-bar"></span>
+          <span class="w-bar"></span><span class="w-bar"></span><span class="w-bar"></span>
+          <span class="w-bar"></span><span class="w-bar"></span><span class="w-bar"></span>
+          <span class="w-bar"></span><span class="w-bar"></span><span class="w-bar"></span>
+        </div>
+        <div class="tech-tick-ruler mini"></div>
+      </div>
+
+      <!-- Right Controls & Clock -->
+      <div class="header-right">
+        <div class="hud-sys-box">
+          <div class="box-tag">SYS-AUTH</div>
+          <div class="box-val green" id="system-security-text">ONLINE</div>
+        </div>
+        <div class="hud-clock-box">
+          <div class="box-tag">TIME // UTC+5:30</div>
+          <div class="clock-digits" id="live-clock">00:00:00</div>
+        </div>
+        <button id="voice-reply-toggle" class="hud-tech-btn active" title="Toggle Voice Response">
+          <span class="btn-chevron">»</span>
+          <span>VOICE: ON</span>
+        </button>
+        <button id="settings-open-btn" class="hud-tech-btn square" title="Settings">
+          <span>⚙️</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Sci-Fi Decorative Rail Ruler -->
+    <div class="tech-rail-divider">
+      <div class="rail-left"></div>
+      <div class="rail-center-ticks"></div>
+      <div class="rail-right"></div>
+    </div>
+
+    <!-- MAIN GRID -->
+    <main class="hud-main-grid">
+
+      <!-- LEFT COLUMN: ARC REACTOR & SUIT TELEMETRY -->
+      <section class="hud-col left-col">
+
+        <!-- Arc Reactor Hologram Card -->
+        <div class="hud-tech-frame card-frame arc-card">
+          <div class="frame-tag top-left-tag">ARC-CORE // PALLADIUM MK-3.4</div>
+          <div class="frame-tag top-right-tag gold">99.8% POWER</div>
+          <div class="corner-cross top-left"></div>
+          <div class="corner-cross top-right"></div>
+          <div class="corner-cross bottom-left"></div>
+          <div class="corner-cross bottom-right"></div>
+
+          <!-- 3D Arc Reactor Stage -->
+          <div class="reactor-viewport">
+            <div class="radar-circle ring-1"></div>
+            <div class="radar-circle ring-2"></div>
+            <div class="radar-circle ring-segments">
+              <span class="seg s1"></span><span class="seg s2"></span>
+              <span class="seg s3"></span><span class="seg s4"></span>
+              <span class="seg s5"></span><span class="seg s6"></span>
+              <span class="seg s7"></span><span class="seg s8"></span>
+            </div>
+            <div class="radar-circle ring-inner-circuit"></div>
+            <div class="reactor-core-orb" id="arc-reactor-core">
+              <div class="core-glow"></div>
+              <div class="core-pip"></div>
+            </div>
+            <div class="reactor-power-badge">
+              <span class="p-num" id="power-output-val">3.4 GW</span>
+              <span class="p-sub">ENERGY OUTPUT</span>
+            </div>
+          </div>
+
+          <div class="tech-tick-ruler"></div>
+
+          <div class="reactor-status-bar">
+            <div class="state-pill" id="core-state-indicator">SYSTEM STATE: STANDBY</div>
+            <div class="engine-tag" id="engine-model-display">NEURAL ENGINE: GEMINI FLASH LITE</div>
+          </div>
+        </div>
+
+        <!-- Mac Armor Diagnostics & Radar -->
+        <div class="hud-tech-frame card-frame telemetry-card">
+          <div class="frame-tag top-left-tag">DIAGNOSTICS // MACOS ARMOR</div>
+          <div class="frame-tag top-right-tag" id="mac-active-status">ACTIVE</div>
+          <div class="corner-cross top-left"></div>
+          <div class="corner-cross top-right"></div>
+
+          <div class="tech-metric-row">
+            <div class="metric-head">
+              <span class="m-label">ACTIVE FOREGROUND APP</span>
+              <span class="m-val" id="active-app-val">Finder</span>
+            </div>
+            <div class="tech-gauge-bar">
+              <div class="gauge-fill" style="width: 100%;"></div>
+            </div>
+          </div>
+
+          <div class="tech-metric-row">
+            <div class="metric-head">
+              <span class="m-label">ACOUSTIC OUTPUT LEVEL</span>
+              <span class="m-val" id="volume-val">50%</span>
+            </div>
+            <input type="range" id="volume-slider" min="0" max="100" value="50" class="tech-slider">
+          </div>
+
+          <div class="tech-metric-row">
+            <div class="metric-head">
+              <span class="m-label">ARC BATTERY RESERVE</span>
+              <span class="m-val" id="battery-val">85%</span>
+            </div>
+            <div class="tech-gauge-bar">
+              <div class="gauge-fill battery" id="battery-bar-fill" style="width: 85%;"></div>
+            </div>
+          </div>
+
+          <div class="tech-metric-row">
+            <div class="metric-head">
+              <span class="m-label">NEURAL CLIPBOARD FEED</span>
+              <button id="copy-clipboard-btn" class="hud-pill-btn">COPY TO CLIPBOARD</button>
+            </div>
+            <div id="clipboard-preview" class="tech-data-display">Standby...</div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- CENTER COLUMN: LKO TACTICAL CHAT DECK -->
+      <section class="hud-col center-col">
+        <div class="hud-tech-frame card-frame chat-deck-frame">
+          <div class="frame-tag top-left-tag">LKO TACTICAL TERMINAL // MARK 3.4</div>
+          <div class="frame-tag top-right-tag">DIRECT NEURAL LINK</div>
+          <div class="corner-cross top-left"></div>
+          <div class="corner-cross top-right"></div>
+          <div class="corner-cross bottom-left"></div>
+          <div class="corner-cross bottom-right"></div>
+
+          <!-- Quick Action Buttons -->
+          <div class="deck-top-actions">
+            <button id="quick-slack-btn" class="hud-tech-btn highlight">
+              <span class="btn-chevron">»</span>
+              <span>SLACK PROTOCOL</span>
+            </button>
+            <button id="quick-screen-btn" class="hud-tech-btn">
+              <span class="btn-chevron">»</span>
+              <span>OPTICAL SCAN</span>
+            </button>
+            <button id="clear-chat-btn" class="hud-tech-btn dim">
+              <span>PURGE BUFFER</span>
+            </button>
+          </div>
+
+          <div class="tech-tick-ruler"></div>
+
+          <!-- Holographic Messages Feed -->
+          <div class="hud-messages-viewport" id="chat-messages">
+            <div class="hud-bubble ai">
+              <div class="bubble-tag-header">
+                <span class="agent-tag">LKO MARK 3.4 // READY</span>
+                <span class="time-tag">INITIALIZED</span>
+              </div>
+              <div class="bubble-body-box">
+                <div class="bubble-corner tl"></div>
+                <div class="bubble-corner tr"></div>
+                <div class="bubble-corner bl"></div>
+                <div class="bubble-corner br"></div>
+                <div class="bubble-text">
+                  Good day, sir. All LKO Mark 3.4 tactical systems are online and calibrated. Standing by for instructions across your Mac and mobile remote gateways.
+                  <div class="hud-chip-row">
+                    <button class="hud-chip" onclick="sendQuickPrompt('Send a message Hello Team to general on Slack')">» Slack: Message General</button>
+                    <button class="hud-chip" onclick="sendQuickPrompt('Take a screenshot of my Mac and tell me what is open')">» Optical: Screen Analysis</button>
+                    <button class="hud-chip" onclick="sendQuickPrompt('Play AC/DC on Spotify and set volume to 60%')">» Audio: Play Spotify</button>
+                    <button class="hud-chip" onclick="sendQuickPrompt('Open Safari to apple.com')">» Browser: Open Safari</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Command Input Dock -->
+          <div class="hud-input-dock">
+            <div class="tech-tick-ruler"></div>
+            <div class="input-bracket-bar">
+              <button id="mic-btn" class="hud-action-icon-btn" title="Voice Input">
+                <span>🎙️</span>
+              </button>
+              <input type="text" id="command-input" placeholder="Enter order for LKO Mark 3.4 (e.g. 'Send Slack message to ABC')..." autocomplete="off">
+              <button id="attach-screenshot-btn" class="hud-action-icon-btn" title="Capture Frame">📸</button>
+              <button id="send-btn" class="hud-engage-btn">
+                <span class="btn-chevron">»»</span>
+                <span>ENGAGE</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN: OPTICAL SCANNER & PROTOCOL MATRIX -->
+      <section class="hud-col right-col">
+
+        <!-- Optical Vision Frame -->
+        <div class="hud-tech-frame card-frame vision-card">
+          <div class="frame-tag top-left-tag">OPTICAL SENSORS // HUD VISION</div>
+          <div class="frame-tag top-right-tag">
+            <button id="refresh-screen-btn" class="hud-pill-btn">SCAN</button>
+          </div>
+          <div class="corner-cross top-left"></div>
+          <div class="corner-cross top-right"></div>
+
+          <div class="vision-stage">
+            <div class="hud-target-reticle">
+              <div class="reticle-box"></div>
+              <div class="reticle-cross h"></div>
+              <div class="reticle-cross v"></div>
+            </div>
+            <div class="coords-box" id="screen-coords">HUD // X: 0000 | Y: 0000</div>
+            <img id="live-screen-img" src="/api/screenshot" alt="Live Screen Scan" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\' viewBox=\'0 0 300 200\'><rect fill=\'%23020818\' width=\'300\' height=\'200\'/><text fill=\'%2300f3ff\' x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'monospace\'>OPTICAL RADAR ARMED</text></svg>'">
+            <div class="hud-scan-beam"></div>
+          </div>
+
+          <div class="vision-meta-row">
+            <span id="screen-res-tag">RES: 1920x1080 RETINA</span>
+            <span id="screen-time-tag">FEED: REALTIME</span>
+          </div>
+        </div>
+
+        <!-- Mobile Remote Uplinks -->
+        <div class="hud-tech-frame card-frame uplinks-card">
+          <div class="frame-tag top-left-tag">MOBILE UPLINKS // PHONE HUBS</div>
+          <div class="frame-tag top-right-tag green">ENCRYPTED</div>
+          <div class="corner-cross top-left"></div>
+          <div class="corner-cross top-right"></div>
+
+          <div class="uplink-rows">
+            <div class="uplink-box">
+              <div class="up-left">
+                <span class="up-icon">🌐</span>
+                <div>
+                  <div class="up-title">Cloudflare Mobile Tunnel</div>
+                  <div class="up-sub" id="tunnel-status-text">Encrypted Public HTTPS Link</div>
+                </div>
+              </div>
+              <button class="hud-pill-btn highlight" id="btn-copy-public-url">COPY LINK</button>
+            </div>
+
+            <div class="uplink-box">
+              <div class="up-left">
+                <span class="up-icon">✈️</span>
+                <div>
+                  <div class="up-title">Telegram Voice Gateway</div>
+                  <div class="up-sub">Direct @BotFather Bridge</div>
+                </div>
+              </div>
+              <span class="up-badge green">ACTIVE</span>
+            </div>
+
+            <div class="uplink-box">
+              <div class="up-left">
+                <span class="up-icon">💬</span>
+                <div>
+                  <div class="up-title">WhatsApp / Siri Webhooks</div>
+                  <div class="up-sub">Local Endpoint /api/remote</div>
+                </div>
+              </div>
+              <span class="up-badge cyan">LISTENING</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event Protocol Matrix -->
+        <div class="hud-tech-frame card-frame logs-card">
+          <div class="frame-tag top-left-tag">EVENT MATRIX // PROTOCOL LOG</div>
+          <div class="frame-tag top-right-tag green">
+            <span class="pulse-dot"></span> LIVE TELEMETRY
+          </div>
+          <div class="corner-cross bottom-left"></div>
+          <div class="corner-cross bottom-right"></div>
+
+          <div class="hud-matrix-feed" id="terminal-feed">
+            <div class="log-row info">[00:00:01] LKO Mark 3.4 Neural Core online.</div>
+            <div class="log-row success">[00:00:01] Arc Reactor Power Output: 3.4 GW Nominal.</div>
+            <div class="log-row success">[00:00:02] Slack & AppleScript Automation armed.</div>
+            <div class="log-row info">[00:00:02] Mobile Cloudflare Tunnel bridge active.</div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- BOTTOM HUD STATUS BAR -->
+    <footer class="hud-tech-frame footer-frame">
+      <div class="foot-item">
+        <span class="f-lbl">TACTICAL AI:</span>
+        <span class="f-val">LKO MARK 3.4</span>
+      </div>
+      <div class="foot-item">
+        <span class="f-lbl">NEURAL CORE:</span>
+        <span class="f-val cyan" id="footer-engine">GEMINI FLASH LITE</span>
+      </div>
+      <div class="foot-item">
+        <span class="f-lbl">PERMISSIONS:</span>
+        <span class="f-val green">ACCESSIBILITY & SCREEN RECORDING: GRANTED</span>
+      </div>
+      <div class="foot-item right">
+        <span class="f-lbl">MOBILE UPLINK:</span>
+        <span class="f-val link" id="webhook-copy-btn" title="Click to copy">http://localhost:8765/api/remote</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Settings Configuration Modal -->
+  <div id="settings-modal" class="hud-modal hidden">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="hud-tech-frame modal-frame">
+      <div class="modal-top">
+        <h2>LKO MARK 3.4 // SYSTEM CONFIGURATION</h2>
+        <button id="close-modal-btn" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="field-row">
+          <label>Google Gemini API Key</label>
+          <input type="password" id="cfg-gemini-key" placeholder="AIzaSy...">
+        </div>
+        <div class="field-row">
+          <label>Neural Core Model</label>
+          <select id="cfg-gemini-model">
+            <option value="gemini-flash-lite-latest">Gemini Flash Lite Latest (Ultra Fast & High Availability)</option>
+            <option value="gemini-3.1-flash-lite">Gemini 3.1 Flash Lite</option>
+            <option value="gemini-3.5-flash-lite">Gemini 3.5 Flash Lite</option>
+            <option value="gemini-flash-latest">Gemini Flash Latest</option>
+            <option value="gemini-3.5-flash">Gemini 3.5 Flash</option>
+          </select>
+        </div>
+        <div class="field-row">
+          <label>Telegram Bot Token</label>
+          <input type="password" id="cfg-tg-token" placeholder="123456:ABC-DEF...">
+        </div>
+        <div class="field-row">
+          <label>Authorized Telegram User ID(s)</label>
+          <input type="text" id="cfg-tg-users" placeholder="e.g. 123456789">
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button id="save-config-btn" class="hud-engage-btn full">
+          <span class="btn-chevron">»»</span>
+          <span>CALIBRATE & SAVE PROTOCOLS</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

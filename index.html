@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LKO Mark 3.4 // Autonomous macOS Neural Assistant & Holographic HUD</title>
+  
+  <!-- Meta & Open Graph Tags -->
+  <meta name="description" content="LKO Mark 3.4 is an autonomous macOS Neural Assistant with a Tony Stark Holographic Web HUD, Obsidian Menu Bar Widget, AppleScript Automation, and Encrypted Mobile Gateway. Powered by Google Gemini.">
+  <meta name="keywords" content="LKO Mark 3.4, Jarvis AI, Tony Stark UI, macOS AI Assistant, Gemini AI, AppleScript Automation, Holographic HUD, Computer Use">
+  <meta property="og:title" content="LKO Mark 3.4 // The Tony Stark Neural macOS Assistant">
+  <meta property="og:description" content="Autonomous vision, AppleScript automation, 24/7 background telemetry, and interplanetary mobile gateway — powered by Gemini Multimodal Core.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://github.com/shubhransh-gupta/LKO-Mark-3.4">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="arc_reactor_icon.png">
+
+  <!-- Sci-Fi Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="sci-fi-body">
+
+  <!-- Deep Sci-Fi Atmospheric Space Background -->
+  <div class="hud-space">
+    <div class="hud-grid-plane"></div>
+    <div class="hud-radar-concentric"></div>
+    <div class="hud-scanline-fx"></div>
+    <div class="hud-vignette"></div>
+    <canvas id="particle-canvas"></canvas>
+  </div>
+
+  <!-- Global Tech Frame Overlay Border -->
+  <div class="viewport-tech-border">
+    <div class="edge-tick top-left"></div>
+    <div class="edge-tick top-right"></div>
+    <div class="edge-tick bottom-left"></div>
+    <div class="edge-tick bottom-right"></div>
+  </div>
+
+  <!-- MASTER CONTAINER -->
+  <div class="master-wrapper">
+
+    <!-- NAVIGATION HEADER -->
+    <header class="hud-header">
+      <div class="header-inner tech-card">
+        <div class="corner-cross top-left"></div>
+        <div class="corner-cross top-right"></div>
+        <div class="corner-cross bottom-left"></div>
+        <div class="corner-cross bottom-right"></div>
+
+        <!-- Logo & Identity -->
+        <a href="#hero" class="brand-block">
+          <div class="arc-logo-orb">
+            <div class="arc-ring-spin"></div>
+            <div class="arc-core-dot"></div>
+          </div>
+          <div class="brand-text">
+            <div class="brand-title">
+              <span class="glitch-text" data-text="LKO">LKO</span>
+              <span class="badge-mk">MARK 3.4</span>
+            </div>
+            <div class="brand-sub">STARK NEURAL CORE // macOS DAEMON</div>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hud-nav">
+          <a href="#overview" class="nav-link"><span class="nav-bracket">[</span>01 // OVERVIEW<span class="nav-bracket">]</span></a>
+          <a href="#features" class="nav-link"><span class="nav-bracket">[</span>02 // SYSTEMS<span class="nav-bracket">]</span></a>
+          <a href="#simulator" class="nav-link"><span class="nav-bracket">[</span>03 // LIVE HUD SIM<span class="nav-bracket">]</span></a>
+          <a href="#architecture" class="nav-link"><span class="nav-bracket">[</span>04 // ARCHITECTURE<span class="nav-bracket">]</span></a>
+          <a href="#roadmap" class="nav-link"><span class="nav-bracket">[</span>05 // ROADMAP<span class="nav-bracket">]</span></a>
+        </nav>
+
+        <!-- Right System Indicators & CTA -->
+        <div class="header-status">
+          <div class="status-indicator">
+            <span class="status-dot"></span>
+            <span class="status-text">UNDER ACTIVE DEV</span>
+          </div>
+          <a href="https://github.com/shubhransh-gupta/LKO-Mark-3.4" target="_blank" rel="noopener noreferrer" class="hud-btn glow-gold">
+            <span class="btn-icon">⚡</span>
+            <span>GITHUB REPO</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- FLOATING DEVELOPMENT STATUS BANNER -->
+    <div class="dev-banner-strip">
+      <div class="dev-banner-inner">
+        <span class="banner-tag">PROTO-STATUS // FLIGHT TEST PHASE:</span>
+        <span class="banner-msg">⚠️ LKO Mark 3.4 is currently in active development & experimental flight testing. Core neural features are live and evolving rapidly.</span>
+        <span class="banner-version">[BUILD MK-3.4.12 // QUANTUM FALLBACK ACTIVE]</span>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+      <!-- HERO SECTION -->
+      <section id="hero" class="hero-section">
+        <div class="hero-container">
+          
+          <!-- Left Hero Narrative -->
+          <div class="hero-text-content">
+            <div class="tech-pill-tag">
+              <span class="pulsar"></span>
+              <span>AUTONOMOUS NEURAL OPERATING ASSISTANT</span>
+            </div>
+
+            <h1 class="hero-title">
+              THE TONY STARK <br>
+              <span class="text-cyan-glow">JARVIS EXPERIENCE</span> <br>
+              FOR YOUR MAC.
+            </h1>
+
+            <p class="hero-description">
+              Meet <strong>LKO Mark 3.4</strong> — the next-generation autonomous AI co-pilot designed for macOS. 
+              Equipped with a full holographic tactical HUD, native AppleScript automation, optical screen intelligence, 
+              and encrypted global mobile tunneling, powered by Google's multimodal Gemini Flash engine.
+            </p>
+
+            <!-- Hero Action Buttons -->
+            <div class="hero-cta-group">
+              <a href="#simulator" class="hud-btn primary-hud-btn" id="btn-demo-sim">
+                <span class="btn-corner-tl"></span>
+                <span class="btn-corner-br"></span>
+                <span class="btn-label">⚡ INITIALIZE LIVE HUD SIMULATOR</span>
+              </a>
+              <a href="https://github.com/shubhransh-gupta/LKO-Mark-3.4" target="_blank" rel="noopener noreferrer" class="hud-btn secondary-hud-btn">
+                <span class="btn-corner-tl"></span>
+                <span class="btn-corner-br"></span>
+                <span class="btn-label">📁 CLONE SOURCE CODE</span>
+              </a>
+            </div>
+
+            <!-- Live Telemetry Badges -->
+            <div class="hero-telemetry-grid">
+              <div class="telemetry-item">
+                <div class="telemetry-lbl">POWER OUTPUT</div>
+                <div class="telemetry-val text-gold"><span id="live-power-val">3.40</span> GW</div>
+                <div class="telemetry-sub">Palladium Arc Core</div>
+              </div>
+              <div class="telemetry-item">
+                <div class="telemetry-lbl">VISION LATENCY</div>
+                <div class="telemetry-val text-cyan">&lt; 380 ms</div>
+                <div class="telemetry-sub">Multimodal Flash</div>
+              </div>
+              <div class="telemetry-item">
+                <div class="telemetry-lbl">REMOTE UPLINK</div>
+                <div class="telemetry-val text-green">ZERO-TRUST</div>
+                <div class="telemetry-sub">Cloudflare Mobile Tunnel</div>
+              </div>
+              <div class="telemetry-item">
+                <div class="telemetry-lbl">DAEMON STATUS</div>
+                <div class="telemetry-val text-cyan">24/7 NATIVE</div>
+                <div class="telemetry-sub">macOS LaunchAgent</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Holographic Arc Reactor Stage -->
+          <div class="hero-visual-stage">
+            <div class="hologram-stage-frame tech-card">
+              <div class="frame-tag top-left-tag">TACTICAL CORE // PALLADIUM 3.4</div>
+              <div class="frame-tag top-right-tag gold">ACTIVE TELEMETRY</div>
+              <div class="corner-cross top-left"></div>
+              <div class="corner-cross top-right"></div>
+              <div class="corner-cross bottom-left"></div>
+              <div class="corner-cross bottom-right"></div>
+
+              <!-- 3D Arc Reactor Interactive Visual -->
+              <div class="reactor-3d-wrapper" id="reactor-interactive-orb">
+                <div class="reactor-ring outer-ring"></div>
+                <div class="reactor-ring mid-ring"></div>
+                <div class="reactor-ring segment-ring">
+                  <span class="core-segment seg-1"></span>
+                  <span class="core-segment seg-2"></span>
+                  <span class="core-segment seg-3"></span>
+                  <span class="core-segment seg-4"></span>
+                  <span class="core-segment seg-5"></span>
+                  <span class="core-segment seg-6"></span>
+                  <span class="core-segment seg-7"></span>
+                  <span class="core-segment seg-8"></span>
+                </div>
+                <div class="reactor-ring inner-circuit"></div>
+                <div class="reactor-pulsing-core">
+                  <div class="core-lens-glow"></div>
+                  <div class="core-center-crystal"></div>
+                </div>
+
+                <!-- Floating Holographic Data Rings -->
+                <div class="holo-orbit-data data-top">SYS_INIT // 0x7FFE</div>
+                <div class="holo-orbit-data data-bottom">CORE_TEMP // 38.4°C</div>
+                <div class="holo-orbit-data data-left">FREQ // 4.8 GHz</div>
+                <div class="holo-orbit-data data-right">SECURITY // LEVEL-5</div>
+              </div>
+
+              <!-- Interactive Sound & HUD Controls -->
+              <div class="reactor-status-footer">
+                <div class="audio-bars" id="reactor-audio-wave">
+                  <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                  <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                  <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </div>
+                <button class="sfx-toggle-btn" id="sfx-toggle" title="Toggle Jarvis Audio Effects">
+                  <span class="sfx-dot"></span>
+                  <span class="sfx-label">JARVIS AUDIO: ON</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 1: OVERVIEW & INSPIRATION -->
+      <section id="overview" class="section-container">
+        <div class="section-header">
+          <div class="section-num">[ 01 // OVERVIEW ]</div>
+          <h2 class="section-title">ENGINEERED FOR SUPREMACY</h2>
+          <p class="section-subtitle">Born out of the desire for a true Iron Man HUD desktop experience with genuine autonomous control over your operating system.</p>
+        </div>
+
+        <div class="overview-grid">
+          <div class="overview-card tech-card">
+            <div class="card-icon">🦾</div>
+            <h3 class="card-title">Tony Stark's Dream, Brought to Life</h3>
+            <p class="card-desc">
+              LKO Mark 3.4 isn't just another chat box. It is a full-bleed, responsive Sci-Fi tactical workspace featuring real-time diagnostic dials, orbital telemetry, sound effects, and holographic visuals that react dynamically to every instruction.
+            </p>
+          </div>
+
+          <div class="overview-card tech-card">
+            <div class="card-icon">🧠</div>
+            <h3 class="card-title">Autonomous Action Agent</h3>
+            <p class="card-desc">
+              Equipped with deep AppleScript integration, LKO can send Slack communications, analyze high-resolution screenshots, manipulate system volume, launch applications, and control workflow pipelines without you lifting a finger.
+            </p>
+          </div>
+
+          <div class="overview-card tech-card">
+            <div class="card-icon">📱</div>
+            <h3 class="card-title">Zero-Trust Mobile Access</h3>
+            <p class="card-desc">
+              Integrated with instant Cloudflare secure tunneling. Launch LKO on your MacBook and access the full tactical flight deck from your iPhone or Android device anywhere in the world on mobile data.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: SYSTEM CAPABILITIES (GRID) -->
+      <section id="features" class="section-container">
+        <div class="section-header">
+          <div class="section-num">[ 02 // SYSTEMS & MODULES ]</div>
+          <h2 class="section-title">SUIT DIAGNOSTICS & CAPABILITIES</h2>
+          <p class="section-subtitle">A modular matrix of specialized neural sub-routines built for seamless macOS execution.</p>
+        </div>
+
+        <div class="features-grid">
+          
+          <!-- Module 1 -->
+          <div class="feature-card tech-card">
+            <div class="corner-cross top-left"></div>
+            <div class="corner-cross top-right"></div>
+            <div class="feature-tag">MODULE // 01</div>
+            <div class="feature-header">
+              <span class="f-icon">⎊</span>
+              <h3 class="f-title">Aerolite Menu Bar Widget</h3>
+            </div>
+            <p class="f-desc">
+              A minimalist, high-density macOS menu bar popover styled in Aerolite Obsidian. Features a live 360° radar sweep tracking active foreground apps, battery telemetry, volume controls, and 1-click HUD launchers.
+            </p>
+            <div class="f-specs">
+              <span class="spec-pill">LaunchAgent Daemon</span>
+              <span class="spec-pill">Instant Slack Dispatcher</span>
+              <span class="spec-pill">Low CPU Footprint</span>
+            </div>
+          </div>
+
+          <!-- Module 2 -->
+          <div class="feature-card tech-card">
+            <div class="corner-cross top-left"></div>
+            <div class="corner-cross top-right"></div>
+            <div class="feature-tag">MODULE // 02</div>
+            <div class="feature-header">
+              <span class="f-icon">👁️</span>
+              <h3 class="f-title">Computer Use & Optical Vision</h3>
+            </div>
+            <p class="f-desc">
+              Retina screen capture paired with Gemini's high-speed multimodal vision. Ask LKO to inspect what's currently on your monitor, debug UI glitches, transcribe diagrams, or locate buttons instantly.
+            </p>
+            <div class="f-specs">
+              <span class="spec-pill">Retina Downscaling</span>
+              <span class="spec-pill">Optical OCR</span>
+              <span class="spec-pill">Zero Data Leaks</span>
+            </div>
+          </div>
+
+          <!-- Module 3 -->
+          <div class="feature-card tech-card">
+            <div class="corner-cross top-left"></div>
+            <div class="corner-cross top-right"></div>
+            <div class="feature-tag">MODULE // 03</div>
+            <div class="feature-header">
+              <span class="f-icon">💬</span>
+              <h3 class="f-title">AppleScript Deep Automation</h3>
+            </div>
+            <p class="f-desc">
+              Direct operating system hooks without relying on fragile web browser emulators. Control Slack workspace channels, send DMs, execute safe shell commands, and read system clipboards natively.
+            </p>
+            <div class="f-specs">
+              <span class="spec-pill">Slack Quick-Switcher</span>
+              <span class="spec-pill">System Volume Control</span>
+              <span class="spec-pill">Shell Pipeline</span>
+            </div>
+          </div>
+
+          <!-- Module 4 -->
+          <div class="feature-card tech-card">
+            <div class="corner-cross top-left"></div>
+            <div class="corner-cross top-right"></div>
+            <div class="feature-tag">MODULE // 04</div>
+            <div class="feature-header">
+              <span class="f-icon">🎙️</span>
+              <h3 class="f-title">Voice Duplex & STT Protocol</h3>
+            </div>
+            <p class="f-desc">
+              Integrated browser Speech-to-Text and synthesized British AI voice replies. Speak directly to LKO through your microphone and receive spoken JARVIS responses with real-time audio visualization.
+            </p>
+            <div class="f-specs">
+              <span class="spec-pill">Web Speech API</span>
+              <span class="spec-pill">Quantum Wave Visualizer</span>
+              <span class="spec-pill">British Voice Synthesis</span>
+            </div>
+          </div>
+
+          <!-- Module 5 -->
+          <div class="feature-card tech-card">
+            <div class="corner-cross top-left"></div>
+            <div class="corner-cross top-right"></div>
+            <div class="feature-tag">MODULE // 05</div>
+            <div class="feature-header">
+              <span class="f-icon">🌐</span>
+              <h3 class="f-title">Interplanetary Mobile Tunnel</h3>
+            </div>
+            <p class="f-desc">
+              Automated Cloudflare Quick Tunnel orchestration. On startup, LKO generates a private, temporary HTTPS gateway link allowing you to control your home workstation from your smartphone anywhere.
+            </p>
+            <div class="f-specs">
+              <span class="spec-pill">Cloudflare Argo Tunnels</span>
+              <span class="spec-pill">Zero Port Forwarding</span>
+              <span class="spec-pill">End-to-End SSL</span>
+            </div>
+          </div>
+
+          <!-- Module 6 -->
+          <div class="feature-card tech-card">
+            <div class="corner-cross top-left"></div>
+            <div class="corner-cross top-right"></div>
+            <div class="feature-tag">MODULE // 06</div>
+            <div class="feature-header">
+              <span class="f-icon">🛡️</span>
+              <h3 class="f-title">Air-Gapped Local Privacy</h3>
+            </div>
+            <p class="f-desc">
+              Your API keys and credentials are stored strictly in local <span class="code-mono">.env</span> files. Screenshots and temporary telemetry files are automatically expunged after processing.
+            </p>
+            <div class="f-specs">
+              <span class="spec-pill">Local Keychain</span>
+              <span class="spec-pill">No Central Cloud Logs</span>
+              <span class="spec-pill">Gitignored Secrets</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 3: LIVE INTERACTIVE HUD SIMULATOR -->
+      <section id="simulator" class="section-container">
+        <div class="section-header">
+          <div class="section-num">[ 03 // LIVE HUD SIMULATOR ]</div>
+          <h2 class="section-title">EXPERIENCE JARVIS IN REAL-TIME</h2>
+          <p class="section-subtitle">Interact with the simulated Stark tactical console below. Click pre-set tactical protocols or enter custom queries.</p>
+        </div>
+
+        <div class="simulator-wrapper tech-card">
+          <div class="corner-cross top-left"></div>
+          <div class="corner-cross top-right"></div>
+          <div class="corner-cross bottom-left"></div>
+          <div class="corner-cross bottom-right"></div>
+
+          <!-- Simulator Header -->
+          <div class="sim-header">
+            <div class="sim-brand">
+              <span class="sim-dot"></span>
+              <span class="sim-title">LKO MARK 3.4 // NEURAL SIMULATION TERMINAL</span>
+            </div>
+            <div class="sim-status">
+              <span>TARGET: macOS SEQUOIA // GEMINI-FLASH-LITE</span>
+            </div>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="sim-preset-bar">
+            <span class="preset-label">QUICK PROTOCOLS:</span>
+            <button class="preset-btn" data-query="Jarvis, scan active screen telemetry and analyze open windows.">👁️ Optical Screen Analysis</button>
+            <button class="preset-btn" data-query="Send message to #engineering on Slack: 'LKO Mark 3.4 build compiled successfully.'">💬 Dispatch Slack Message</button>
+            <button class="preset-btn" data-query="Check Mac system battery, volume, and CPU core frequencies.">⚡ Read Hardware Telemetry</button>
+            <button class="preset-btn" data-query="Initialize Cloudflare encrypted mobile gateway for remote uplink.">🌐 Activate Mobile Tunnel</button>
+          </div>
+
+          <!-- Interactive Terminal Body -->
+          <div class="sim-terminal-screen" id="sim-output">
+            <div class="sim-line system">[SYSTEM] LKO Mark 3.4 Neural Console initialized. Arc Reactor 3.4 GW Nominal.</div>
+            <div class="sim-line system">[STATUS] Quantum voice duplex & vision sub-routines standby. Ready for user instruction.</div>
+            <div class="sim-line bot">
+              <span class="bot-tag">&gt; JARVIS:</span> "Good day, Sir. All Mark 3.4 suit systems are online. How may I assist your workstation today?"
+            </div>
+          </div>
+
+          <!-- Terminal Input Row -->
+          <form class="sim-input-row" id="sim-form">
+            <span class="prompt-symbol">❯</span>
+            <input type="text" id="sim-input" placeholder="Type a command for Jarvis (e.g. 'Analyze my screen' or 'Set volume to 50%')..." autocomplete="off">
+            <button type="submit" class="hud-btn glow-cyan">
+              <span>TRANSMIT</span>
+              <span class="btn-arr">»</span>
+            </button>
+          </form>
+
+        </div>
+      </section>
+
+      <!-- SECTION 4: ARCHITECTURE BLUEPRINT -->
+      <section id="architecture" class="section-container">
+        <div class="section-header">
+          <div class="section-num">[ 04 // SYSTEM ARCHITECTURE ]</div>
+          <h2 class="section-title">PALLADIUM CORE TOPOLOGY</h2>
+          <p class="section-subtitle">How LKO bridges local macOS system APIs with cloud multimodal intelligence.</p>
+        </div>
+
+        <div class="architecture-diagram tech-card">
+          <div class="diag-column">
+            <div class="diag-node">
+              <div class="node-badge">CLIENT LAYER</div>
+              <h4>Holographic HUD & MenuBar</h4>
+              <p>Futuristic Web UI (`:8765`), Aerolite popover widget, and mobile web view.</p>
+            </div>
+            <div class="diag-arrow">⬇ ⬆</div>
+            <div class="diag-node highlight-cyan">
+              <div class="node-badge">DISPATCHER CORE</div>
+              <h4>Python Daemon & HTTP Bridge</h4>
+              <p>Multi-threaded server handling telemetry, WebSocket feeds, and tool routing.</p>
+            </div>
+          </div>
+
+          <div class="diag-column">
+            <div class="diag-node highlight-gold">
+              <div class="node-badge">NEURAL BRAIN</div>
+              <h4>Google Gemini Multimodal Core</h4>
+              <p>Flash-Lite low latency reasoning, tool calling, and high-res screen grounding.</p>
+            </div>
+            <div class="diag-arrow">⬇ ⬆</div>
+            <div class="diag-node highlight-green">
+              <div class="node-badge">LOCAL EXECUTION ENGINE</div>
+              <h4>AppleScript & macOS APIs</h4>
+              <p>Native automation for Slack, terminal commands, screen capture, and audio.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: ROADMAP // UNDER PROCESS -->
+      <section id="roadmap" class="section-container">
+        <div class="section-header">
+          <div class="section-num">[ 05 // DEVELOPMENT ROADMAP ]</div>
+          <h2 class="section-title">ACTIVE FLIGHT REFINEMENT</h2>
+          <p class="section-subtitle">LKO Mark 3.4 is actively in process. Here is our flight testing timeline and upcoming upgrades.</p>
+        </div>
+
+        <div class="roadmap-timeline">
+
+          <!-- Phase 1 -->
+          <div class="timeline-card completed tech-card">
+            <div class="timeline-badge done">✓ PHASE 1 // OPERATIONAL</div>
+            <h3 class="timeline-title">Core Foundation & Holographic UI</h3>
+            <ul class="timeline-list">
+              <li>✓ Tony Stark 3D Arc Reactor HUD with real-time sound visualizer</li>
+              <li>✓ Aerolite Obsidian Menu Bar popover with radar sweep map</li>
+              <li>✓ Native AppleScript dispatcher for Slack and macOS controls</li>
+              <li>✓ Cloudflare Tunnel automated mobile gateway configuration</li>
+            </ul>
+          </div>
+
+          <!-- Phase 2 -->
+          <div class="timeline-card in-progress tech-card">
+            <div class="timeline-badge active">⚡ PHASE 2 // IN ACTIVE PROCESS (CURRENT)</div>
+            <h3 class="timeline-title">Autonomous Vision & Multi-Platform Bridge</h3>
+            <ul class="timeline-list">
+              <li>⚡ Ultra-low latency retina optical screen reasoning (<span class="text-cyan">Under Testing</span>)</li>
+              <li>⚡ Telegram Two-Way Voice/Command Agent Bridge (<span class="text-cyan">Refining</span>)</li>
+              <li>⚡ Multi-model failover matrix for 99.99% neural uptime</li>
+              <li>⚡ C-compiled native Mach-O launcher with zero startup delay</li>
+            </ul>
+          </div>
+
+          <!-- Phase 3 -->
+          <div class="timeline-card upcoming tech-card">
+            <div class="timeline-badge upcoming">⏳ PHASE 3 // COMING SOON</div>
+            <h3 class="timeline-title">Neural Local Mesh & Spatial Gestures</h3>
+            <ul class="timeline-list">
+              <li>⏳ Mac FaceTime camera hand-gesture HUD navigation</li>
+              <li>⏳ Local quantized Ollama/Gemma-4 fallback when offline</li>
+              <li>⏳ Inter-Mac multi-device swarm orchestration</li>
+              <li>⏳ Custom Stark voice cloning engine</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 6: EARLY ACCESS & WAITLIST TRANSMISSION -->
+      <section id="access" class="section-container">
+        <div class="access-box tech-card">
+          <div class="corner-cross top-left"></div>
+          <div class="corner-cross top-right"></div>
+          <div class="corner-cross bottom-left"></div>
+          <div class="corner-cross bottom-right"></div>
+
+          <div class="access-content">
+            <div class="tech-pill-tag">
+              <span class="pulsar gold"></span>
+              <span>RESTRICTED STARK PROTOCOL TRANSMISSION</span>
+            </div>
+
+            <h2 class="access-title">JOIN THE LKO FLIGHT CREW</h2>
+            <p class="access-desc">
+              Be the first to receive bleeding-edge Mark 3.4 updates, new tool integrations, and early builds.
+              LKO is open-source and built for hackers, engineers, and Tony Stark enthusiasts.
+            </p>
+
+            <form class="access-form" id="waitlist-form">
+              <div class="input-wrapper">
+                <span class="input-icon">✉️</span>
+                <input type="email" id="waitlist-email" placeholder="Enter your developer email..." required autocomplete="email">
+              </div>
+              <button type="submit" class="hud-btn glow-gold">
+                <span>REQUEST PILOT ACCESS</span>
+                <span class="btn-arr">»</span>
+              </button>
+            </form>
+            <div class="form-feedback" id="waitlist-feedback"></div>
+
+            <div class="access-footer-links">
+              <span>Or inspect the codebase immediately on GitHub:</span>
+              <a href="https://github.com/shubhransh-gupta/LKO-Mark-3.4" target="_blank" rel="noopener noreferrer" class="repo-link">
+                ⭐ Star shubhransh-gupta/LKO-Mark-3.4
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="hud-footer">
+      <div class="footer-inner tech-card">
+        <div class="footer-left">
+          <div class="footer-brand">LKO MARK 3.4 // NEURAL macOS CORE</div>
+          <div class="footer-sub">Crafted for futuristic developer automation & autonomous pair programming.</div>
+        </div>
+        <div class="footer-center">
+          <div class="coord-tag">COORDINATES: LAT 26.8467° N // LON 80.9462° E [LKO HQ]</div>
+          <div class="footer-copy">MIT LICENSE © 2026 // STARK PROTOCOL INITIATIVE</div>
+        </div>
+        <div class="footer-right">
+          <a href="https://github.com/shubhransh-gupta/LKO-Mark-3.4" target="_blank" rel="noopener noreferrer" class="hud-mini-btn">
+            GITHUB
+          </a>
+          <a href="#hero" class="hud-mini-btn">
+            TOP ▲
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Interactive JavaScript -->
+  <script src="landing.js"></script>
+</body>
+</html>

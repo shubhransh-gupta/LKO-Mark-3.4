@@ -38,13 +38,36 @@ class LKOMark34Handler(SimpleHTTPRequestHandler):
                     self.wfile.write(f.read())
                 return
 
-            elif path == "/menu" or path == "/menu.html":
+            elif path in ["/landing", "/landing.html", "/marketing"]:
                 self.send_response(200)
                 self.send_header("Content-Type", "text/html; charset=utf-8")
                 self.end_headers()
-                with open(STATIC_DIR / "menu.html", "rb") as f:
-                    self.wfile.write(f.read())
+                docs_index = ROOT_DIR / "docs" / "index.html"
+                if docs_index.exists():
+                    with open(docs_index, "rb") as f:
+                        self.wfile.write(f.read())
+                else:
+                    with open(STATIC_DIR / "index.html", "rb") as f:
+                        self.wfile.write(f.read())
                 return
+
+            elif path.startswith("/docs/"):
+                file_path = ROOT_DIR / path.lstrip("/")
+                if file_path.exists() and file_path.is_file():
+                    self.send_response(200)
+                    if file_path.suffix == ".css":
+                        self.send_header("Content-Type", "text/css")
+                    elif file_path.suffix == ".js":
+                        self.send_header("Content-Type", "application/javascript")
+                    elif file_path.suffix in [".png", ".jpg", ".jpeg"]:
+                        self.send_header("Content-Type", "image/png")
+                    elif file_path.suffix == ".html":
+                        self.send_header("Content-Type", "text/html; charset=utf-8")
+                    self.end_headers()
+                    with open(file_path, "rb") as f:
+                        self.wfile.write(f.read())
+                    return
+
 
             elif path.startswith("/static/"):
                 file_path = STATIC_DIR / path.replace("/static/", "")

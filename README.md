@@ -21,6 +21,12 @@
 
 <br/>
 
+[![Stars](https://img.shields.io/github/stars/shubhransh-gupta/LKO-Mark-3.4?style=social)](https://github.com/shubhransh-gupta/LKO-Mark-3.4/stargazers)
+[![Forks](https://img.shields.io/github/forks/shubhransh-gupta/LKO-Mark-3.4?style=social)](https://github.com/shubhransh-gupta/LKO-Mark-3.4/network/members)
+[![Tweet](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Fshubhransh-gupta%2FLKO-Mark-3.4&text=%E2%9A%A1%20LKO%20Mark%203.4%20%E2%80%94%20Tony%20Stark%27s%20JARVIS%20for%20macOS%20with%20Holographic%20HUD%20%26%20Gemini%20Vision!)](https://twitter.com/intent/tweet?text=%E2%9A%A1%20LKO%20Mark%203.4%20%E2%80%94%20Tony%20Stark%27s%20JARVIS%20for%20macOS%20with%20Holographic%20HUD%20%26%20Gemini%20Vision!&url=https%3A%2F%2Fgithub.com%2Fshubhransh-gupta%2FLKO-Mark-3.4)
+
+<br/>
+
 **[ 🌐 VIEW LIVE MARKETING PORTAL & HUD SIMULATOR → ](https://shubhransh-gupta.github.io/LKO-Mark-3.4/)**
 
 ---
@@ -208,6 +214,13 @@ ALLOWED_TELEGRAM_USER_IDS=
 
 ---
 
+## 🏷️ COMMUNITY TOPICS & KEYWORDS
+
+`#jarvis` `#tony-stark` `#iron-man` `#ai-assistant` `#macos` `#gemini` `#gemini-flash` `#computer-use` `#autonomous-agents` `#agentic-ai` `#applescript` `#holographic-hud` `#cyberpunk` `#voice-assistant` `#screen-vision` `#slack-automation` `#cloudflare-tunnel` `#developer-tools` `#ai-agents` `#mac-apps`
+
+---
+
 ## 📄 LICENSE & PROTOCOL
 
 This project is open-source under the **MIT License**. Crafted with ❤️ for autonomous AI pair programming and Tony Stark enthusiasts.
+
